@@ -3,7 +3,7 @@ import { INITIAL_DETAIL_SLOT_COUNT } from "./constants.js";
 
 export const FORMULARIO_RUNTIME_CONFIG = {
   dataSource: DATA_SOURCE_TYPES.BACKEND,
-  userFallback: "usuario_demo",
+  userFallback: "Daysi_Pardavé",
   backend: {
     enabled: true,
     baseUrl: "https://script.google.com/macros/s/AKfycbyI86pG-Sj2TCj89rXuthN1_cG4W7CuStU6NzL_yLo4-qj3a924Yl_i8HZKDES78nOh/exec",
