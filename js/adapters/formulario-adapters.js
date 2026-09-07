@@ -77,17 +77,23 @@ export function buildSubmissionDraft({ machine, turn, date, detailSlots, directP
   let productionValues = [];
 
   if (machine.tipo_captura === MACHINE_CAPTURE_TYPES.DETALLE) {
+    // La produccion puede ser 0 (maquina en mantenimiento ese turno). Las
+    // casillas vacias siguen cayendo en null y se ignoran; un 0 escrito se
+    // guarda como registro real. Negativo se descarta (input ya tiene min=0).
     productionValues = (detailSlots || [])
       .map(toNumberOrNull)
-      .filter((value) => value != null && value > 0);
+      .filter((value) => value != null && value >= 0);
 
     if (!productionValues.length) {
       throw new Error("Ingresa al menos una produccion valida para Murata 2.");
     }
   } else if (machine.tipo_captura === MACHINE_CAPTURE_TYPES.DIRECTO) {
     const directValue = toNumberOrNull(directProduction);
-    if (directValue == null || directValue <= 0) {
+    if (directValue == null) {
       throw new Error("Ingresa una produccion valida para la maquina seleccionada.");
+    }
+    if (directValue < 0) {
+      throw new Error("La produccion no puede ser negativa.");
     }
     productionValues = [directValue];
   } else {
