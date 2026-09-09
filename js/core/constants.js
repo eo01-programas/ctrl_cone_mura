@@ -7,8 +7,8 @@ export const FALLBACK_BOOTSTRAP = {
     {
       id_maquina: "MURATA_1",
       nombre_maquina: "Murata 1",
-      estado: MACHINE_STATUS.BLOQUEADO,
-      tipo_captura: MACHINE_CAPTURE_TYPES.PENDIENTE
+      estado: MACHINE_STATUS.ACTIVO,
+      tipo_captura: MACHINE_CAPTURE_TYPES.DETALLE
     },
     {
       id_maquina: "MURATA_2",
