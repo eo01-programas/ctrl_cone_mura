@@ -85,7 +85,7 @@ export function buildSubmissionDraft({ machine, turn, date, detailSlots, directP
       .filter((value) => value != null && value >= 0);
 
     if (!productionValues.length) {
-      throw new Error("Ingresa al menos una produccion valida para Murata 2.");
+      throw new Error(`Ingresa al menos una produccion valida para ${machine.nombre_maquina}.`);
     }
   } else if (machine.tipo_captura === MACHINE_CAPTURE_TYPES.DIRECTO) {
     const directValue = toNumberOrNull(directProduction);
